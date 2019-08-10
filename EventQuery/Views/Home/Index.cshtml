@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <form action="/home/LoadFromIGUsernames">
+        <div>
+            <h2>Instagram</h2>
+            <div>
+                <label>Enter the usernames separated by space</label>
+                <input type="text" placeholder="Enter search keyword" name="username" required/>
+                <input type="submit" value="Load with Usernames" class="btn btn-success" />
+            </div>
+        </div>
+
+    </form>
+
+    <hr />
+
+    @Html.ActionLink("Load Events for IG Hashtags", "LoadFromIGTags", null, new { @class ="btn btn-primary"})
+    <hr />
+
+    <form action="/home/LoadFromEventBrite">
+        <div>
+            <h2>Eventbrite</h2>
+            <div>
+                <label>Enter Search keywords</label>
+                <input type="text" placeholder="Enter search keyword" name="keyword" required/>
+            </div>
+            <div>
+                <label>Enter Location</label>
+                <input type="text" placeholder="Enter Location" name="location" required/>
+                <input type="submit" value="Go for Eventbrite" class="btn btn-info"/>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </form>
+
+
+</div>
+
+<div class="row">
+
+</div>
