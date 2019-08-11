@@ -35,7 +35,7 @@ namespace EventQuery.Controllers
 
             var mapPath = HttpContext.Server.MapPath("~/images");
             await AppImageDownloader.BuildWithUsername(mapPath, username);
-            return RedirectToAction("Success");
+            return RedirectToAction("InstagramImages");
         }
         public async Task<ActionResult> LoadFromIGTags()
         {
@@ -44,7 +44,7 @@ namespace EventQuery.Controllers
 
             var mapPath = HttpContext.Server.MapPath("~/images");
             await AppImageDownloader.BuildWithTags(mapPath, tags);
-            return RedirectToAction("Success");
+            return RedirectToAction("InstagramImages");
         }
 
         public ActionResult LoadFromEventBrite(string keyword, string location)
@@ -52,7 +52,7 @@ namespace EventQuery.Controllers
             List<Event> filteredEvents = EventHelper.getAllEvents(keyword, location);
             var eventsToSaveToDb = GetUsefulEventData(filteredEvents);
             EventDatabaseHelper.SaveEventToDb(eventsToSaveToDb);
-            return RedirectToAction("Success");
+            return RedirectToAction("AllEvents");
         }
         public ActionResult Success()
         {
