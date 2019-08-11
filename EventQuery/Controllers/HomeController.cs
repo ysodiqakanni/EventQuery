@@ -1,4 +1,5 @@
-﻿using EventQuery.Data.DTO;
+﻿using EventQuery.Data;
+using EventQuery.Data.DTO;
 using EventQuery.Data.Eventbrite;
 using EventQuery.Models.Eventbrite;
 using EventQuery.Services.Evebtbrite;
@@ -14,9 +15,14 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace EventQuery.Controllers
-{
+{ 
     public class HomeController : Controller
     {
+        ApplicationDbContext ctx = null;
+        public HomeController()
+        {
+            ctx = new ApplicationDbContext();
+        }
         public async Task<ActionResult> Index()
         {
           
@@ -50,6 +56,21 @@ namespace EventQuery.Controllers
         }
         public ActionResult Success()
         {
+            return View();
+        }
+        public ActionResult AllEvents()
+        {
+            var allEvents = ctx.Events.Take(50).ToList();
+            return View(allEvents);
+        }
+        public ActionResult InstagramImages()
+        {
+            var allIgImages = ctx.UserInformations.OrderByDescending(i => i.CreatedOn).Take(50).ToList();
+            return View(allIgImages);
+        }
+        public ActionResult ViewIgImage(string imageUri)
+        {
+            ViewBag.ImgUrl = imageUri;
             return View();
         }
 

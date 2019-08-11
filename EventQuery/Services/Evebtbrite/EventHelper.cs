@@ -12,11 +12,7 @@ namespace EventQuery.Services.Evebtbrite
     public static class EventHelper
     {
         public static List<Event> getAllEvents(String keyword, string location)
-        {
-            Console.Clear();
-
-            Console.WriteLine($"Searching by keyword {keyword}");
-
+        {  
             List<Event> events = new List<Event>();
             var firstPaginatedEventResponse = getEventByPage(1, keyword, location);
             events.AddRange(firstPaginatedEventResponse.events);

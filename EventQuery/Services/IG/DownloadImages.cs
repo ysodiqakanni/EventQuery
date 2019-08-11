@@ -28,7 +28,7 @@ namespace EventQuery.Services.IG
                         {
                             Directory.CreateDirectory(newPath);
                         }
-                        var infos = await PullImages(urls, newPath);
+                        var infos = await PullImages(urls, newPath, key);
                         infoList.AddRange(infos);
                     }
                 }
@@ -37,7 +37,7 @@ namespace EventQuery.Services.IG
             return tsk;
         }
 
-        public static Task<List<UserInformation>> PullImages(List<UserInformation> userInfo, string storePath)
+        public static Task<List<UserInformation>> PullImages(List<UserInformation> userInfo, string storePath, string key)
         {
             var task = Task.Run(async () =>
             {
@@ -54,7 +54,7 @@ namespace EventQuery.Services.IG
 
                         guid += ext;
                         var path = Path.Combine(storePath, guid);
-                        var loadPath = $"~/images/{guid}";
+                        var loadPath = $"~/images/{key}/{guid}";
 
                         info.ImageUrl = loadPath;
                         infos.Add(info);

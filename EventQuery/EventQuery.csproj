@@ -172,7 +172,6 @@
     <Compile Include="Models\Eventbrite\Category.cs" />
     <Compile Include="Models\Eventbrite\Event.cs" />
     <Compile Include="Models\Eventbrite\EventDate.cs" />
-    <Compile Include="Models\Eventbrite\EventDTO.cs" />
     <Compile Include="Models\Eventbrite\EventPrice.cs" />
     <Compile Include="Models\Eventbrite\EventTextHtml.cs" />
     <Compile Include="Models\Eventbrite\PaginatedEventResponse.cs" />
@@ -232,6 +231,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Success.cshtml" />
+    <Content Include="Views\Home\AllEvents.cshtml" />
+    <Content Include="Views\Home\InstagramImages.cshtml" />
+    <Content Include="Views\Home\ViewIgImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
