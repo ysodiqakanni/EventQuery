@@ -167,6 +167,10 @@
     <Compile Include="Migrations\201908080209046_InitialCreate1.Designer.cs">
       <DependentUpon>201908080209046_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908111747284_modifyIgTable.cs" />
+    <Compile Include="Migrations\201908111747284_modifyIgTable.Designer.cs">
+      <DependentUpon>201908111747284_modifyIgTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Eventbrite\Address.cs" />
     <Compile Include="Models\Eventbrite\Category.cs" />
@@ -234,6 +238,7 @@
     <Content Include="Views\Home\AllEvents.cshtml" />
     <Content Include="Views\Home\InstagramImages.cshtml" />
     <Content Include="Views\Home\ViewIgImage.cshtml" />
+    <Content Include="Views\Home\InstagramImagesByTags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908080209046_InitialCreate1.resx">
       <DependentUpon>201908080209046_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908111747284_modifyIgTable.resx">
+      <DependentUpon>201908111747284_modifyIgTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

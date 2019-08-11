@@ -60,13 +60,18 @@ namespace EventQuery.Controllers
         }
         public ActionResult AllEvents()
         {
-            var allEvents = ctx.Events.Take(50).ToList();
+            var allEvents = ctx.Events.Take(200).ToList();
             return View(allEvents);
         }
         public ActionResult InstagramImages()
         {
-            var allIgImages = ctx.UserInformations.OrderByDescending(i => i.CreatedOn).Take(50).ToList();
+            var allIgImages = ctx.UserInformations.Where(i => String.Compare(i.RetrievedUsing, "username", true) == 0).OrderByDescending(i => i.DateGenerated).Take(50).ToList();
             return View(allIgImages);
+        }
+        public ActionResult InstagramImagesByTags()
+        {
+            var imagesByHashtag = ctx.UserInformations.Where(i=> String.Compare(i.RetrievedUsing, "hashtag", true) == 0).OrderByDescending(i => i.DateGenerated).Take(50).ToList();
+            return View(imagesByHashtag);
         }
         public ActionResult ViewIgImage(string imageUri)
         {

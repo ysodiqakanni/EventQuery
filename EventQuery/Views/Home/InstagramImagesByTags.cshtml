@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<EventQuery.Models.IG.UserInformation>
 
 @{
-    ViewBag.Title = "Instagram Images By Usernames";
+    ViewBag.Title = "InstagramImages";
 }
 
-<h2>Instagram Images</h2>
+<h2>Instagram Images By Tags</h2>
 
- 
+
 <table class="table">
     <tr>
         <th>
@@ -24,9 +24,10 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        
+    @foreach (var item in Model)
+    {
+        <tr>
+
             @if (String.IsNullOrEmpty(item.Title))
             {
                 <td></td>
@@ -36,21 +37,21 @@
                 string title = item.Title.Length <= 40 ? item.Title : item.Title.Substring(0, 40) + "...";
                 <td>@title</td>
             }
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RetrievedUsing)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedOn)
-        </td>
-        <td> 
-            @Html.ActionLink("View", "ViewIgImage", new { imageUri = item.ImageUrl })
-         
-        </td>
-    </tr>
-                }
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RetrievedUsing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                @Html.ActionLink("View", "ViewIgImage", new { imageUri = item.ImageUrl })
+
+            </td>
+        </tr>
+    }
 
 </table>

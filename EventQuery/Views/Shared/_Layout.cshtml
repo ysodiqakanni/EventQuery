@@ -19,9 +19,10 @@
                 @Html.ActionLink("EventApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"> 
+                <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("View All Events", "AllEvents", "Home")</li>
-                    <li>@Html.ActionLink("View all IG data", "InstagramImages", "Home")</li>
+                    <li>@Html.ActionLink("View IG images by Usernames", "InstagramImages", "Home")</li>
+                    <li>@Html.ActionLink("View IG images by Tags", "InstagramImagesByTags", "Home")</li>
                 </ul>
             </div>
         </div>

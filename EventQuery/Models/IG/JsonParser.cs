@@ -120,7 +120,8 @@ namespace EventQuery.Models.IG
                     var userData = new UserInformation
                     {
                         ImageUrl = node.display_url,
-                        CreatedOn = UnixTimeStampToDateTime(node.taken_at_timestamp)
+                        CreatedOn = UnixTimeStampToDateTime(node.taken_at_timestamp),
+                        DateGenerated = DateTime.UtcNow
                     };
 
                     var caption = node.edge_media_to_caption;

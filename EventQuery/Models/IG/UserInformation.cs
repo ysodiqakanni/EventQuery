@@ -15,5 +15,6 @@ namespace EventQuery.Models.IG
         public string RetrievedUsing { get; set; }
 
         public DateTime CreatedOn { get; set; }
+        public DateTime DateGenerated { get; set; }
     }
 }
