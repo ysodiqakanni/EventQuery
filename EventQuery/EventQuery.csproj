@@ -239,6 +239,7 @@
     <Content Include="Views\Home\InstagramImages.cshtml" />
     <Content Include="Views\Home\ViewIgImage.cshtml" />
     <Content Include="Views\Home\InstagramImagesByTags.cshtml" />
+    <Content Include="Views\Home\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

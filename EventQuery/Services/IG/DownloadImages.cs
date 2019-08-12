@@ -21,7 +21,9 @@ namespace EventQuery.Services.IG
                     foreach (var usr in userList)
                     {
                         var key = usr.Key;
+                        if (usr.Value == null || !usr.Value.Any()) continue;
                         var urls = usr.Value;
+                       
 
                         var newPath = Path.Combine(path, key);
                         if (!Directory.Exists(newPath))

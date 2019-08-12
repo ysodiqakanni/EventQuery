@@ -50,11 +50,12 @@ namespace EventQuery.Models.IG
                     var userData = new UserInformation
                     {
                         ImageUrl = node.display_url,
-                        CreatedOn = UnixTimeStampToDateTime(node.taken_at_timestamp)
+                        CreatedOn = UnixTimeStampToDateTime(node.taken_at_timestamp),
+                        DateGenerated = DateTime.UtcNow
                     };
 
                     // get only media for today
-                    if (userData.CreatedOn.Date != DateTime.Now.Date) continue;
+                    if (userData.CreatedOn.Date != DateTime.UtcNow.Date) continue;
 
                     var caption = node.edge_media_to_caption;
                     if (caption != null)

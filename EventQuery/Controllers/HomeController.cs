@@ -34,8 +34,20 @@ namespace EventQuery.Controllers
             if (String.IsNullOrEmpty(username)) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var mapPath = HttpContext.Server.MapPath("~/images");
-            await AppImageDownloader.BuildWithUsername(mapPath, username);
-            return RedirectToAction("InstagramImages");
+            int count = AppImageDownloader.BuildWithUsername(mapPath, username).Result;
+            return RedirectToAction("Report", new { c=count});
+        }
+        public ActionResult Report(string m, int c)
+        {
+            if(c == 0)
+            {
+                ViewBag.Msg = "No media posted today by the specified IG handle.";
+            }
+            else
+            {
+                ViewBag.Msg = $"{c} total records were retrieved from the specified IG handle";
+            } 
+            return View();
         }
         public async Task<ActionResult> LoadFromIGTags()
         {

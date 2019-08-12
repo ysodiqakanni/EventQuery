@@ -47,7 +47,7 @@ namespace EventQuery.Services.IG
                         }
                         
                         if (userData != null)
-                        {
+                        { 
                             list.AddRange(userData);
                         }
                     }

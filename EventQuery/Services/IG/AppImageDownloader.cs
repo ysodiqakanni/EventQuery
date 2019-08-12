@@ -49,11 +49,11 @@ namespace EventQuery.Services.IG
             });
             return task;
         }
-        public static Task BuildWithUsername(string path, string username)
+        public static Task<int> BuildWithUsername(string path, string username)
         {
+            int totalMediaPostedToday = 0;
             var task = Task.Run(async () =>
-            {
-                
+            { 
                 var usernames = username.Split(' ').ToList();   
 
                 var usernameUrl = "https://www.instagram.com/";  
@@ -61,16 +61,21 @@ namespace EventQuery.Services.IG
                 if (list != null && list.Any())
                 {
                     var infoList = await DownloadImages.LoadUserImages(list, path);
-
-                    foreach (var userInfo in infoList)
+                    if (infoList.Any())
                     {
-                        userInfo.Id = Guid.NewGuid().ToString();
-                        userInfo.RetrievedUsing = "Username";
+                        foreach (var userInfo in infoList)
+                        {
+                            userInfo.Id = Guid.NewGuid().ToString();
+                            userInfo.RetrievedUsing = "Username";
+                        }
+                        IGDatabaseHelper.SaveUserInfoToDb(infoList);
                     }
-                    IGDatabaseHelper.SaveUserInfoToDb(infoList);
-                } 
+                    totalMediaPostedToday = infoList.Count;
+                }
+                return totalMediaPostedToday;
             });
-            return task;
+           
+           return task;
         }
         public static Task BuildWithTags(string path, string tag)
         {
